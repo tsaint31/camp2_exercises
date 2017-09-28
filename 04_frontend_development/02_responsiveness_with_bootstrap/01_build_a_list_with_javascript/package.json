@@ -1,0 +1,15 @@
+{
+  "name": "01_build_a_list_with_javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Fewlines",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^21.2.1",
+    "wapiti": "^1.2.1"
+  }
+}
