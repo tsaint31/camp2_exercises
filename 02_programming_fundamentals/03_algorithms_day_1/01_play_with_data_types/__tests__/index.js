@@ -5,26 +5,23 @@ const path = require('path');
 let studentCode;
 
 beforeAll(() => {
-  // Clears the database and adds some testing data.
-  // Jest will wait for this promise to resolve before running tests.
+  // Loads the content of the student's code
   return new Promise(function(resolve, reject) {
-    fs.readFile(
-      path.join(__dirname, '../index.js'),
-      'utf8',
-      function(err, text) {
-        if (err) {
-          reject(err);
-          return;
-        }
-        studentCode = text;
-        resolve();
+    fs.readFile(path.join(__dirname, '../index.js'), 'utf8', function(
+      err,
+      text
+    ) {
+      if (err) {
+        reject(err);
+        return;
       }
-    );
+      studentCode = text;
+      resolve();
+    });
   });
 });
 
 describe('computations', () => {
-
   test('a and b should exist', () => {
     const a = eval(studentCode + '; a;');
     const b = eval(studentCode + '; b;');
@@ -95,5 +92,17 @@ describe('computations', () => {
     expect(canLegallyDrink).toBeDefined();
     expect(typeof canLegallyDrink).toBe('boolean');
     expect(canLegallyDrink).toBe(age >= 18);
+  });
+
+  test('canLegallyDrink takes age into account', () => {
+    const modifiedStudentCode = studentCode
+      .replace(/const /g, 'let ')
+      .replace('let canLegallyDrink', 'age = 17; let canLegallyDrink');
+
+    const canLegallyDrink = eval(modifiedStudentCode + '; canLegallyDrink;');
+
+    expect(canLegallyDrink).toBeDefined();
+    expect(typeof canLegallyDrink).toBe('boolean');
+    expect(canLegallyDrink).toBe(false);
   });
 });
