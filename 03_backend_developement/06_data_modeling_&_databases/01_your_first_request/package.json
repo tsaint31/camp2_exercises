@@ -1,0 +1,13 @@
+{
+  "name": "01_your_first_request",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "jest": "^21.2.1",
+    "pg": "^7.3.0"
+  }
+}
