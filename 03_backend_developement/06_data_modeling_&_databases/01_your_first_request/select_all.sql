@@ -1,0 +1,2 @@
+-- Make a request that select all rows from the table `persons`
+-- When you think you have finished, you can run `npm test` in this directory to check the answer
