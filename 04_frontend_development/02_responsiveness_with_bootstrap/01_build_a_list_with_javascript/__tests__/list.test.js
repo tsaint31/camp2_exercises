@@ -12,14 +12,14 @@ test("it should have a list of departments", async () => {
       const node = document.querySelector("ul#department-list");
       return node ? node.tagName : "";
     })
-    .run();
+    .run({args: ['--no-sandbox', '--disable-setuid-sandbox']});
   expect(result).toEqual("UL");
 });
 
 test("it should have 101 departments", async () => {
   const result = await Wapiti.goto(testFile)
     .capture(() => document.querySelectorAll("#department-list li").length)
-    .run();
+    .run({args: ['--no-sandbox', '--disable-setuid-sandbox']});
   expect(result).toEqual(101);
 });
 
@@ -30,6 +30,6 @@ test("the list of element should be on par with the list of departments", async 
         node.textContent.trim()
       )
     )
-    .run();
+    .run({args: ['--no-sandbox', '--disable-setuid-sandbox']});
   expect(result).toEqual(departments);
 });
