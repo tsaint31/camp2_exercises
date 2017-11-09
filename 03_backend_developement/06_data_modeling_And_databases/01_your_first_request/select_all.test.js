@@ -53,4 +53,5 @@ test("should select all entries", done =>
       console.warn("File could not be read");
       done();
     }
-  ));
+  )
+);

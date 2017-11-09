@@ -1,0 +1,23 @@
+{
+  "name": "camp2_exercises",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "node customTesting.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fewlinesco/camp2_exercises.git"
+  },
+  "author": "Ninjarab",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fewlinesco/camp2_exercises/issues"
+  },
+  "homepage": "https://github.com/fewlinesco/camp2_exercises#readme",
+  "dependencies": {
+    "phoenix-channels": "^1.0.0"
+  },
+  "devDependencies": {
+    "jest": "^21.2.1"
+  }
+}
