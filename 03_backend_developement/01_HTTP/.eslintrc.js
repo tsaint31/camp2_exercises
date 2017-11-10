@@ -13,7 +13,7 @@ module.exports = {
         "quotes": ["error", "single"], // enforces single quotes
         "semi": ["error", "always"], // semicolons must be there
         "no-var": "error", // only let and const
-        "no-console": "allow", // allow console.log usage
+        "no-console": 0, // allow console.log usage
         "no-template-curly-in-string": "warn", // warns if you use the `${}` syntax inside a string
         "array-callback-return": "error", // folding on an array must be done with a function that returns something
         "eqeqeq": "error", // disallow `==` in favor of `===`

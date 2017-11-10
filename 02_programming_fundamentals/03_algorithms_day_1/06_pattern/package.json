@@ -1,0 +1,13 @@
+{
+  "name": "06_pattern",
+  "version": "1.0.0",
+  "description": "display number in descending order",
+  "main": "complete_the_pattern.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^21.2.1"
+  }
+}
