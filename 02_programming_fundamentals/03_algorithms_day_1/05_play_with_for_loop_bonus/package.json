@@ -1,10 +1,10 @@
 {
-  "name": "02_play_with_conditional_statement",
+  "name": "05_play_with_for_loop_bonus",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "01_line.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",

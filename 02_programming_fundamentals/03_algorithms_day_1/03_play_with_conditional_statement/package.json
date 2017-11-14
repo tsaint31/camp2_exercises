@@ -1,12 +1,11 @@
 {
-  "name": "01_play_with_data_types",
+  "name": "02_play_with_conditional_statement",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
-  "author": "",
   "license": "ISC",
   "devDependencies": {
     "jest": "^21.2.1"

@@ -5,8 +5,7 @@ const path = require('path');
 let studentCode;
 
 beforeAll(() => {
-  // Clears the database and adds some testing data.
-  // Jest will wait for this promise to resolve before running tests.
+  // Loads the content of the student's code
   return new Promise(function(resolve, reject) {
     fs.readFile(path.join(__dirname, '../index.js'), 'utf8', function(
       err,
@@ -24,7 +23,7 @@ beforeAll(() => {
 
 function getStudentCode(testData) {
   return studentCode.replace(
-    'const driverData = require(\'./driver_data\');',
+    'const driverData = require(\'./.driver_data\');',
     'const driverData = ' + JSON.stringify(testData)
   );
 }

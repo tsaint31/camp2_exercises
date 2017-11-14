@@ -1,1 +1,1 @@
-03_algorithms_day_1/.eslintrc.js
+../03_algorithms_day_1/.eslintrc.js
