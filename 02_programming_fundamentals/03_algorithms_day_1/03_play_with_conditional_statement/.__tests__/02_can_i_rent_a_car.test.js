@@ -7,7 +7,7 @@ let studentCode;
 beforeAll(() => {
   // Loads the content of the student's code
   return new Promise(function(resolve, reject) {
-    fs.readFile(path.join(__dirname, '../index.js'), 'utf8', function(
+    fs.readFile(path.join(__dirname, '../02_can_i_rent_a_car.js'), 'utf8', function(
       err,
       text
     ) {
