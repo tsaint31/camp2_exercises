@@ -8,6 +8,9 @@
 // should return `null` if tried with a negative number or
 // with something else than a number.
 //
+// Implement a `fibo` function that takes an argument n and returns
+// the n'th value of the sequence.
+//
 // Remember that you can call `fibo` inside of itself
 // even several times
 
