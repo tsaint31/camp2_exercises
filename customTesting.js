@@ -1,5 +1,6 @@
 const { exec } = require('child_process');
 const { Socket } = require('phoenix-channels');
+const path = require('path');
 const util = require('util');
 
 const execAsPromise = util.promisify(exec);
@@ -39,6 +40,14 @@ const getTimestamp = () => Date.now();
 
 const isSet = variable => variable !== undefined && variable !== null && variable !== '';
 
+const formatExerciseName = (pathName) =>
+  execAsPromise('git rev-parse --show-toplevel')
+    .then(({stdout: rootDir}) => {
+      const relativePath = path.relative(rootDir.trim(), pathName);
+
+      return relativePath.replace(/((.+)\/\.?__tests__\/(.*?)(\.test)?(\.js)|(.*?)(\.test)?(\.js))/, "$2/$3$5$6$8");
+    })
+
 if (isSet(SPARTA_GITHUB_WEBHOOK) && isSet(SPARTA_API_KEY)) {
   const socket = new Socket(SPARTA_GITHUB_WEBHOOK, { params: { api_key: SPARTA_API_KEY } });
   socket.connect();
@@ -47,24 +56,22 @@ if (isSet(SPARTA_GITHUB_WEBHOOK) && isSet(SPARTA_API_KEY)) {
 
   const onSuccess = value => {
     const timestamp = getTimestamp();
-    channel.push('test_passed', PAYLOADS.testPassed(buildNumber(timestamp), timestamp, value.testResults[0].name));
+    formatExerciseName(value.testResults[0].name)
+      .then(exerciseName =>
+        channel.push('test_passed', PAYLOADS.testPassed(buildNumber(timestamp), timestamp, exerciseName)));
 
     return value;
   };
 
   const onFailure = error => {
     const timestamp = getTimestamp();
-    const testResults = JSON.parse(error.stdout)
-    console.log(testResults)
-    channel.push(
-      'test_failed',
-      PAYLOADS.testFailed(
-        buildNumber(timestamp),
-        timestamp,
-        testResults.name,
-        testResults.message
-      )
-    );
+    const value = JSON.parse(error.stdout);
+    formatExerciseName(value.testResults[0].name)
+      .then(exerciseName =>
+        channel.push('test_failed', PAYLOADS.testFailed(buildNumber(timestamp),
+                                                        timestamp,
+                                                        exerciseName,
+                                                        value.testResults[0].message)));
 
     return JSON.parse(error.stdout);
   };
@@ -79,7 +86,7 @@ if (isSet(SPARTA_GITHUB_WEBHOOK) && isSet(SPARTA_API_KEY)) {
 
   async function runTest(path) {
     const timestamp = getTimestamp();
-    channel.push('start_test', PAYLOADS.startTest(buildNumber(timestamp), timestamp, path));
+    channel.push('test_started', PAYLOADS.startTest(buildNumber(timestamp), timestamp, path));
 
     const { stdout, stderr } = await execAsPromise(`jest --json ${path}`);
 
