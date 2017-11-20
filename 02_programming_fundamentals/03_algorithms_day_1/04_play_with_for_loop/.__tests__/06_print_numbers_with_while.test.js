@@ -36,7 +36,7 @@ test("print numbers from 0 to 100", () => {
 });
 
 test("one while was used", () => {
-  const whiles = studentCode.match(/while\(.*?\)/gm);
+  const whiles = studentCode.match(/while(\s*?)\(.*?\)/gm);
 
   expect(whiles).toBeTruthy();
   expect(whiles.length).toBe(1);
