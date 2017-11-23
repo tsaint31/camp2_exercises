@@ -101,7 +101,7 @@ test("promo", () => {
   const promo = eval(studentCode + "; promo;");
   const expected = {
     year: 2017,
-    kind: "hello"
+    kind: "Sparta"
   };
   expect(promo).toEqual(expected);
 });
@@ -115,7 +115,7 @@ describe("promoYear", () => {
     const promo = eval(changedStudentCode + "; promo;");
     const expected = {
       year: 2000,
-      kind: "hello"
+      kind: "Sparta"
     };
     expect(promo).toEqual(expected);
   });
