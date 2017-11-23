@@ -8,3 +8,10 @@
 // ****
 // *****
 // ```
+let stdout="";
+for (let i = 0; i < 5 ; i++)
+{
+//  stdout = `${stdout}*`;
+  stdout = stdout+ "*";
+  console.log(stdout);
+}
