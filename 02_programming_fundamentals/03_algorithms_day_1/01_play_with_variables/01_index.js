@@ -7,21 +7,9 @@ const foo = 12;
 // a constant called `bar`, bound to an integer: 28;
 const bar = 28;
 // a constant called `sumResult`, bound to the sum of `foo` and `bar`;
-<<<<<<< Updated upstream
 const sumResult= foo + bar;
 // a constant called `prodResult`, bound to the mult of `bar` and `foo`.
 const prodResult = foo * bar;
-=======
-<<<<<<< HEAD
-
-// a constant called `prodResult`, bound to the product of `bar` and `foo`.
-
-=======
-const sumResult= foo + bar;
-// a constant called `prodResult`, bound to the mult of `bar` and `foo`.
-const prodResult = foo * bar;
->>>>>>> corriger les exercices 01 index 01 array 02 array method 01 can i drink
->>>>>>> Stashed changes
 // a constant called `promo`, bound to an object with a field `year`, with the value of `currentYear` and with the field `kind`, with the value of `hello`;
 const promo = {year: currentYear, kind:"hello"};
 // a constant called `promoYear`, bound to the value of the field `year` of the object `promo`;
