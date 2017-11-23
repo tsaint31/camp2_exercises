@@ -10,7 +10,7 @@ module.exports = {
     "rules": {
         "indent": ["error", 2], // 2 spaces indentation
         "linebreak-style": ["error","unix"], // line-breaks are unix
-        "quotes": ["error", "single"], // enforces single quotes
+        "quotes": ["error", "double"], // enforces double quotes
         "semi": ["error", "always"], // semicolons must be there
         "no-var": "error", // only let and const
         "no-console": 0, // allow console.log usage
