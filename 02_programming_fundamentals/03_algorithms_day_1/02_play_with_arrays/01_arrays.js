@@ -11,4 +11,4 @@
 // create a constant called `last` for the last cell of your array;
 
 
-// create a constant called `sixth` for the cell at the position 6 of your array;
+// create a constant called `sixth` for the cell at the index 6 of your array;
