@@ -11,7 +11,7 @@ const sumResult= foo + bar;
 // a constant called `prodResult`, bound to the mult of `bar` and `foo`.
 const prodResult = foo * bar;
 // a constant called `promo`, bound to an object with a field `year`, with the value of `currentYear` and with the field `kind`, with the value of `hello`;
-const promo = {year: currentYear, kind:"hello"};
+const promo = {year: currentYear, kind: hello};
 // a constant called `promoYear`, bound to the value of the field `year` of the object `promo`;
 const promoYear = promo.year;
 // a constant called `digits`, bound to an array from zero to nine.
