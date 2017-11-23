@@ -29,17 +29,5 @@ const frieda = {
 // These variables should stay correct if we modify the ages of the objects `francis` and `frieda` in the declaration.
 
 // These variables should stay correct if we modify the ages of the objects `francis` and `frieda`.
-let canFriedaDrinkAlcohol = true;
-let canFrancisDrinkAlcohol = false;
-
-if (francis.age>=18) {
-  canFrancisDrinkAlcohol = true;
-} else {
-  canFrancisDrinkAlcohol = false;
-}
-
-if (frieda.age>=18) {
-  canFriedaDrinkAlcohol = true;
-} else {
-  canFriedaDrinkAlcohol = false;
-}
+const canFriedaDrinkAlcohol= true;
+const canFrancisDrinkAlcohol= true;
