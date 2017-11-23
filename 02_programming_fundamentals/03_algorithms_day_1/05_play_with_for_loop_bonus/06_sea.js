@@ -12,3 +12,24 @@
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // ~~~~~~X~~~~~~~~~~~~~~~~~~~~~~~
 // ```
+
+let stdout=["","","","","","","","",""];
+
+for (let ligne = 0; ligne < 9 ; ligne++)
+{ for (let colonne = 0; colonne < 30 ; colonne++)
+{
+  if ((ligne===1 && colonne===24) || (ligne===8 && colonne===6))
+  {
+    stdout[ligne]= stdout[ligne]+ "X";
+  }
+  else if ((ligne===3 && colonne===5)|| (ligne===6 && colonne===17))
+  {
+    stdout[ligne]= stdout[ligne]+ "0";
+  }
+  else
+  {
+    stdout[ligne]= stdout[ligne]+ "~";
+  }
+}
+console.log(stdout[ligne]);
+}
