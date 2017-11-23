@@ -1,5 +1,5 @@
 // a constant called `hello`, bound to a string: "Sparta";
-const hello="Sparta";
+const hello = "Sparta";
 // a constant called `currentYear`, bound to an integer: 2017;
 const currentYear = 2017;
 // a constant called `foo`, bound to an integer: 12;
@@ -16,12 +16,3 @@ const promo = {year: currentYear, kind: hello};
 const promoYear = promo.year;
 // a constant called `digits`, bound to an array from zero to nine.
 const digits = [0,1,2,3,4,5,6,7,8,9];
-console.log(hello);
-console.log(currentYear);
-console.log(foo);
-console.log(bar);
-console.log(sumResult);
-console.log(prodResult);
-console.log(promo);
-console.log(promoYear);
-console.log(digits);

@@ -4,10 +4,8 @@
 // -  Using `length`, write on `stdout` each values of the table.
 const litteralDigits = ["zero","one","two","three","four","five","six","seven","eight","nine"];
 
-let stdout="";
 
 for (let i = 0 ; i <= litteralDigits.length-1 ; i++)
 {
-  stdout = litteralDigits[i];
-  console.log(stdout);
+  console.log(litteralDigits[i]);
 }
