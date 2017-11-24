@@ -20,7 +20,11 @@ function filter(array, str) {
     return resultat;
   }
 }
+<<<<<<< HEAD
 console.log(filter([1,2,3,4,5,6,7], "odd"));
+=======
+console.log(filter([1,2,3,4,5], "even"));
+>>>>>>> day  2 exo 3
 
 
 // do not remove this line, it is for tests
