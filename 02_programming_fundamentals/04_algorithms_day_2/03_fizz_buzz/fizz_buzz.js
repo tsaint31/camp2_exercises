@@ -26,10 +26,9 @@ function fizzBuzz(list) {
   }
   return resultat;
 }
-<<<<<<< HEAD
-console.log(fizzBuzz([1,3,5,15]));
-=======
 console.log(fizzBuzz(["1","3","5","15"]));
+=======
+console.log(fizzBuzz([1,3,5,15]));
 >>>>>>> day 2 exo 3
 
 module.exports = fizzBuzz;
