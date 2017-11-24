@@ -9,9 +9,28 @@
    YOU MUST USE array.map
 */
 
-function fizzBuzz(list) {
-
+function determineTerm(value) {
+  if (Number.isInteger(value/3) && Number.isInteger(value/5)) {
+    return "FizzBuzz";
+  }
+  else if (Number.isInteger(value/3)) {
+    return "Fizz";
+  }
+  else if (Number.isInteger(value/5)) {
+    return "Buzz";
+  }
+  else {
+    return value;
+  }
 }
 
+function fizzBuzz(list)
+{
+  return list.map(determineTerm);
+}
+
+
+const suite = [1,2,3];
+console.log(fizzBuzz(suite));
 
 module.exports = fizzBuzz;
