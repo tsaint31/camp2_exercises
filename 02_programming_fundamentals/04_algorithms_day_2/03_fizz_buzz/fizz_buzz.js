@@ -9,8 +9,23 @@
 */
 
 function fizzBuzz(list) {
-
+  let resultat=[];
+  for (let i=0; i<list.length; i++) {
+    if (Number.isInteger(list[i]/3) && Number.isInteger(list[i]/5)) {
+      resultat.push("FizzBuzz");
+    }
+    else if (Number.isInteger(list[i]/3)) {
+      resultat.push("Fizz");
+    }
+    else if (Number.isInteger(list[i]/5)) {
+      resultat.push("Buzz");
+    }
+    else {
+      resultat.push(list[i]);
+    }
+  }
+  return resultat;
 }
-
+console.log(fizzBuzz(["1","3","5","15"]));
 
 module.exports = fizzBuzz;
