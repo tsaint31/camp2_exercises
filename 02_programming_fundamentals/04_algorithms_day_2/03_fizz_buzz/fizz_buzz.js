@@ -26,6 +26,6 @@ function fizzBuzz(list) {
   }
   return resultat;
 }
-console.log(fizzBuzz(["1","3","5","15"]));
+console.log(fizzBuzz([1,3,5,15]));
 
 module.exports = fizzBuzz;
