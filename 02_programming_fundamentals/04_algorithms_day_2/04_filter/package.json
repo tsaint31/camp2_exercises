@@ -1,0 +1,14 @@
+{
+  "name": "filter",
+  "version": "1.0.0",
+  "description": "You have to write a few functions to filter an array.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^21.2.1"
+  }
+}
