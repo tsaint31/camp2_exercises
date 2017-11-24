@@ -7,4 +7,16 @@
 
 // ⚠ Do not remove me ! It's for tests
 // eslint-disable-next-line
+
+
+
+
+function joinArray(array,str) {
+  const resultat = array.reduce((accumulator, currentValue) => accumulator + str + currentValue);
+  return resultat;
+}
+
+const tableau=["zero", "one", "two"];
+
+console.log(joinArray(tableau,"-"));
 module.exports = joinArray;
