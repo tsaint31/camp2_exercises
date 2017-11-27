@@ -18,9 +18,3 @@ test("it should not use Array.sort", () => {
   expect(sort([12, 7, 9, 572, -84])).toEqual([-84, 7, 9, 12, 572]);
   expect(sortCalled).toBe(false);
 })
-
-test("it should return a new array", () => {
-  const startingArray = [24, 4, 9, 72, -18];
-  expect(sort(startingArray)).toEqual([-18, 4, 9, 24, 72]);
-  expect(startingArray).toEqual([24, 4, 9, 72, -18]);
-})
