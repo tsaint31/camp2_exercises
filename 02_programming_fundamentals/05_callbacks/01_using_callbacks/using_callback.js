@@ -3,6 +3,6 @@ const thisIsThePlayer = (callback) => {
   callback(player);
 }
 
-// Write a function sayHello that greets: "Hello, Spartacus".
+// Write a function sayHello that greets: "Hello, Spartacus". (Where "Spartacus" is the player name)
 
 thisIsThePlayer(sayHello);
