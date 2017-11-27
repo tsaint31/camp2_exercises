@@ -33,10 +33,36 @@
 // 1111111111111111111111
 // ```
 
-function pattern(size) {
-  // Your code here
+function repeat(array,size) {
+  let table=[];
+  for (let i=0; i<size; i++) {
+    let value="";
+    const caract= `${array[i]}`;
+    for (let j=0; j<array[i]; j++) {
+      value = value + caract;
+    }
+    table.push(value);
+  }
+  return table;
 }
 
+function pattern1(size) {
+  // Your code here
+  let line=[];
+  for (let i=0; i<size; i++) {
+    line.push(i+1);
+  }
+  return line;
+}
+
+function pattern(size) {
+  // Your code here
+  const resultat = repeat(pattern1(size),size);
+  return (resultat.join("\n"));
+}
+
+//repeat([1,2,3],3);
+pattern(5);
 // Do not remove last lines, it is for tests
 // eslint-disable-next-line
 module.exports = pattern;
