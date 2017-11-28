@@ -14,9 +14,31 @@
 // Remember that you can call `fibo` inside of itself
 // even several times
 
-function fibo(n) {
+const resultat=[];
+
+function fibo(value) {
   // your code here
+  if (typeof(value)==="string") {
+    console.log(null);
+    return null;
+  }
+  else if (value<0  ) {
+    return null;
+  }
+  else if (value===1 || value===0){
+    return 0;
+  }
+  else {
+    resultat.push(0);
+    resultat.push(1);
+    for (let i=1; i<value;  i++) {
+      resultat.push(resultat[i]+resultat[i-1]);
+    }
+    console.log(resultat[resultat.length-1]);
+    return resultat[resultat.length-1];
+  }
 }
 
+fibo(0);
 // do not remove this line, it is for tests
 module.exports = fibo;
