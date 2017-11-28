@@ -1,0 +1,14 @@
+{
+  "name": "01_number_game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "number_game.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^21.2.1"
+  }
+}
