@@ -15,22 +15,22 @@ let couple=[];
 let win=[];
 let resultat=[];
 
-function shuffle(a)
+function shuffle(table)
 {
   let j = 0;
   let valI = "";
   let valJ = valI;
-  let l = a.length - 1;
+  let l = table.length - 1;
   while(l > -1)
   {
     j = Math.floor(Math.random() * l);
-    valI = a[l];
-    valJ = a[j];
-    a[l] = valJ;
-    a[j] = valI;
+    valI = table[l];
+    valJ = table[j];
+    table[l] = valJ;
+    table[j] = valI;
     l = l - 1;
   }
-  return a;
+  return table;
 }
 
 function already_find(valeur) {
