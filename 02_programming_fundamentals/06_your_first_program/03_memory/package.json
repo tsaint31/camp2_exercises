@@ -1,0 +1,17 @@
+{
+  "name": "03_memory",
+  "version": "1.0.0",
+  "description": "",
+  "main": "memory.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^21.2.1"
+  },
+  "dependencies": {
+    "clear-cli": "^1.0.1"
+  }
+}
