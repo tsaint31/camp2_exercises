@@ -12,6 +12,6 @@
     "jest": "^21.2.1"
   },
   "dependencies": {
-    "clear-cli": "^1.0.1"
+    "cli-clear": "^1.0.4"
   }
 }
