@@ -15,24 +15,6 @@ let couple=[];
 let win=[];
 let resultat=[];
 
-function shuffle(table)
-{
-  let j = 0;
-  let valI = "";
-  let valJ = valI;
-  let l = table.length - 1;
-  while(l > -1)
-  {
-    j = Math.floor(Math.random() * l);
-    valI = table[l];
-    valJ = table[j];
-    table[l] = valJ;
-    table[j] = valI;
-    l = l - 1;
-  }
-  return table;
-}
-
 function already_find(valeur) {
   for (let k=0;k<win.length;k++) {
     if (valeur===win[k]) {
@@ -79,7 +61,6 @@ function askQuestion() {
 
 
 function card_table(table) {
-  shuffle(cards);
   console.log(mask_cards);
   askQuestion();
 }
