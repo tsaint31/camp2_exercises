@@ -7,11 +7,33 @@
 //
 // Remember that you can call `fact` inside of itself
 
+let result=1;
 
-function fact(n) {
+function fact(value) {
   // your code here
+  if (value===0){
+    return 1;
+  }
+  else if (value===1) {
+    return 1;
+  }
+  else if (value<0  ) {
+    return null;
+  }
+  else if (typeof(value)==="string") {
+    console.log(null);
+    return null;
+  }
+  else {
+    for (let i=0; i<value; i++)
+    {
+      result=result*(value-i);
+    }
+    console.log(result);
+    return result;
+  }
 }
 
-
+fact("0");
 // do not remove this line, it is for tests
 module.exports = fact;
