@@ -3,4 +3,27 @@
 //
 // The function returns a boolean indicating if it successfully removed the file.
 
-module.exports = deleteFile
+const fs = require('fs');
+
+function isAFile(path) {
+  const stats=  fs.lstatSync(path);
+  return stats.isFile();
+}
+
+function deleteFile(file) {
+  if (isAFile) {
+    {fs.unlink(file, (error) => {
+      if(error) {
+        return false;
+      }
+      else {console.log("File deleted!");
+        return true;
+      }
+    });
+    }
+  }
+}
+
+deleteFile("source3_TSM.txt");
+
+module.exports = deleteFile;
