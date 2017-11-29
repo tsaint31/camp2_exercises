@@ -20,7 +20,7 @@ function filter(array, str) {
     return resultat;
   }
 }
-console.log(filter([1,2,3,4,5], "even"));
+console.log(filter([1,2,3,4,5,6,7], "odd"));
 
 
 // do not remove this line, it is for tests
