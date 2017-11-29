@@ -8,7 +8,7 @@ function copyPaste (source,target) {
     }
     fs.writeFile(target,data, (error) => {
       if(error) {
-          return console.warn(error);
+        return console.warn(error);
       }
       console.log("The file was saved!");
     });

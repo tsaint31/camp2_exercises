@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 function delete_file(file) {
-fs.unlink(file, (error) => {
+  fs.unlink(file, (error) => {
     if(error) {
       return console.warn(error);
     }
