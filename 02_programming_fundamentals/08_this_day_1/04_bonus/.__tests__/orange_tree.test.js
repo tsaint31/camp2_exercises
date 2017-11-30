@@ -1,6 +1,6 @@
 const tree = require("../04_orange_tree");
 
-test('should be able to pick an orange', () => {
+test('should be able to pick an orange when there are some', () => {
   tree.seed();
   tree.oranges = 43;
 
@@ -8,7 +8,7 @@ test('should be able to pick an orange', () => {
   expect(tree.oranges).toEqual(42);
 });
 
-test('should not be able to pick an orange', () => {
+test('should not be able to pick an orange when we just planted the tree', () => {
   tree.seed();
   tree.oranges = 0;
 
@@ -17,7 +17,7 @@ test('should not be able to pick an orange', () => {
 })
 
 for (let year = 1; year < 5; year++) {
-  test(`should not produce oranges at ${year}`, () => {
+  test(`should not produce oranges at year ${year}`, () => {
     tree.seed();
 
     for (let i = 0; i < year; i++) {
@@ -29,7 +29,7 @@ for (let year = 1; year < 5; year++) {
 };
 
 for (let year = 5; year < 10; year++) {
-  test(`should produce 10 oranges at ${year}`, () => {
+  test(`should produce 10 oranges at year ${year}`, () => {
     tree.seed();
 
     for (let i = 0; i < year; i++) {
@@ -41,7 +41,7 @@ for (let year = 5; year < 10; year++) {
 }
 
 for (let year = 10; year < 20; year++) {
-  test(`should produce 20 oranges at ${year}`, () => {
+  test(`should produce 20 oranges at year ${year}`, () => {
     tree.seed();
 
     for (let i = 0; i < year; i++) {
@@ -53,7 +53,7 @@ for (let year = 10; year < 20; year++) {
 }
 
 for (let year = 20; year < 40; year++) {
-  test(`should produce 5 oranges at ${year}`, () => {
+  test(`should produce 5 oranges at year ${year}`, () => {
     tree.seed();
 
     for (let i = 0; i < year; i++) {
@@ -65,7 +65,7 @@ for (let year = 20; year < 40; year++) {
 }
 
 for (let year = 40; year <= 100; year++) {
-  test(`should not produce oranges at ${year}`, () => {
+  test(`should not produce oranges at year ${year}`, () => {
     tree.seed();
 
     for (let i = 0; i < year; i++) {
@@ -77,7 +77,7 @@ for (let year = 40; year <= 100; year++) {
 }
 
 for (let year = 1; year < 10; year++) {
-  test(`should have grown at ${year}`, () => {
+  test(`should have grown at year ${year}`, () => {
     tree.seed();
 
     for (let i = 0; i < year; i++) {
@@ -89,7 +89,7 @@ for (let year = 1; year < 10; year++) {
 }
 
 for (let year = 10; year < 20; year++) {
-  test(`should have grown at ${year}`, () => {
+  test(`should have grown at year ${year}`, () => {
     tree.seed();
 
     for (let i = 0; i < year; i++) {
@@ -101,7 +101,7 @@ for (let year = 10; year < 20; year++) {
 }
 
 for (let year = 20; year <= 100; year++) {
-  test(`should have reached its full size at ${year}`, () => {
+  test(`should have reached its full size at year ${year}`, () => {
     tree.seed();
 
     for (let i = 0; i < year; i++) {
