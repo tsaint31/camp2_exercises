@@ -41,8 +41,9 @@ const orangeTree = {
     }
     else if (this.age>=40) {
       this.oranges=0;
-      const ageDie=Math.ceil(Math.random());
-      if ((this.age>=50 && (ageDie*this.age===this.age)) || this.age===100) {
+
+      const ageDie2=Math.floor(Math.random()*(100-this.age)+this.age);
+      if ((this.age>=50 && (ageDie2===this.age)) || this.age===100) {
         this.alive=false;
       }
     }
@@ -51,7 +52,7 @@ const orangeTree = {
 //should be able to pick an orange when there are some'
 
 orangeTree.seed();
-for (let i=0;i<50;i++) {
+for (let i=0;i<100;i++) {
   orangeTree.ageOneYear();
 }
 module.exports = orangeTree;
