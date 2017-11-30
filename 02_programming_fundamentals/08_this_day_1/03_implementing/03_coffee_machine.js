@@ -26,7 +26,6 @@ const machine = {
 
 
 
-
 machine.fillWithLitersOfCoffee(10);
 console.log(machine.expresso()); // => true
 console.log(machine.litersOfCoffee); // => 9.92
