@@ -1,1 +1,1 @@
-01_HTTP/.eslintrc.js
+../01_HTTP/.eslintrc.js
