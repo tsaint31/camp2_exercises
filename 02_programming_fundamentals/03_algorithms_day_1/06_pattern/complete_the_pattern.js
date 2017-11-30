@@ -1,10 +1,11 @@
 // Modify this value to test with other values
-const numberOfLine = 4;
+const numberOfLine = 8;
 // Your code here ⬇
 const resultat=[];
 let line="";
 let caract="";
 let temp;
+let result="";
 
 
 for (let i=0; i<numberOfLine;i++) {
@@ -17,5 +18,6 @@ for (let i=0; i<numberOfLine;i++) {
   line="";
 }
 for (let i=0;i<resultat.length;i++) {
-  console.log(resultat[i]);
+  result=result+`${resultat[i]}\n`;
 }
+console.log(result);
