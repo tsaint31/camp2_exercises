@@ -28,7 +28,6 @@ let currentPlayer;
 // function hasWinner()
 // function gameIsFinished()
 
-// Gestion du retour de la fonction
 function handleInput(input) {
   const coordinate = getCoordinate(input);
   if (coordinate) {
@@ -51,7 +50,6 @@ function handleInput(input) {
   }
 }
 
-// changer l'input en coordinate
 function getCoordinate(input) {
   const letter = input[0];
   const digit = input[1] - 1;
@@ -62,13 +60,13 @@ function getCoordinate(input) {
     return null;
   }
 }
-// MAJ de la case
+
 function updateState(coordinate) {
   const line = state[coordinate.letter];
 
   line[coordinate.digit] = currentPlayer;
 }
-// changement du player
+
 function nextPlayer() {
   if (currentPlayer === "X") {
     currentPlayer = "O";
@@ -77,20 +75,17 @@ function nextPlayer() {
   }
 }
 
-// démarrage de chaque tour
 function playTurn() {
   console.log(renderBoard());
   reader.question(`${currentPlayer}: What is your move? e.g: a1\n`, handleInput);
 }
 
-// démarrage du jeu et décision du currentplayer
 function start() {
   currentPlayer = ["X", "O"][Math.round(Math.random())];
 
   playTurn();
 }
 
-//affichage de la cellule
 function renderCell(cell) {
   if (cell === null) {
     return "_";
@@ -99,7 +94,6 @@ function renderCell(cell) {
   }
 }
 
-//affichage de la ligne
 function renderRow(letter) {
   const cells = state[letter];
 
@@ -108,7 +102,6 @@ function renderRow(letter) {
   return `${letter} ${row}`;
 }
 
-// affichage du board
 function renderBoard() {
   const letters = Object.keys(state);
 
@@ -119,23 +112,23 @@ function renderBoard() {
   return `${header}\n${rows}`;
 }
 
-// mise à plat d'un tableau de tabeau
 function flattenArray(arrayOfArray) {
   return arrayOfArray.reduce((newArray, array) => newArray.concat(array), [])
 }
 
-// check if tous les cases sont remplis
 function gameIsFinished() {
   const allValues = flattenArray(Object.values(state));
+
   return allValues.every(isNotNull)
 }
-// check if the has winner on parcourt les coordonnées gagnantes et on vérifie si on a XXX ou AAA si on retourne true c'est bon
+
 function hasWinner() {
   const isWinningLine = (line) => {
     const pattern =
       line
       .map((coordinate) => state[coordinate.letter][coordinate.digit])
       .join("");
+
     return pattern === "XXX" || pattern === "OOO";
   }
 
