@@ -1,0 +1,12 @@
+{
+  "name": "02_to_words",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^21.2.1"
+  }
+}
