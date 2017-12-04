@@ -1,16 +1,20 @@
 const readline = require('readline');
 const fs = require("fs");
-const clear = require("cli-clear");
-
 const reader = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
+
+// const WINNING_BOAT = [
+//   {letter: "A", digit: 0},
+//   {letter: "A", digit: 1},
+//   {letter: "B", digit: 3},
+//   {letter: "B", digit: 4},
+//   {letter: "B", digit: 5}
+// ];
 const WINNING_BOAT=[];
-let WINNING_BOAT1={};
-const quantityBoat=3;
-const possibleBoat=0;
+
 
 let nb_touch=0;
 
@@ -34,14 +38,13 @@ function randomBoat() {
     return;
     }
     const parsedData = JSON.parse(data);
-    const possibleBoatnumber = Object.keys(parsedData);
-    const possibleBoat=possibleBoatnumber.length;
-    // const WINNING_BOAT1=parsedData;
-    for (let j=0;j<quantityBoat;j++) {
-    const numero = Math.floor(Math.random()*(possibleBoat/quantityBoat)+((possibleBoat/quantityBoat)*j));
+    const numero = Math.floor(Math.random()*3);
     for (let i=0;i<parsedData[numero].length;i++) {
       WINNING_BOAT.push(parsedData[numero][i]);
     }
+    const numero2 = Math.floor(Math.random()*3)+3;
+    for (let i=0;i<parsedData[numero2].length;i++) {
+      WINNING_BOAT.push(parsedData[numero2][i]);
     }
   });
 }
@@ -93,16 +96,12 @@ function updateState(coordinate) {
   if (WINNING_BOAT.some(isInList)) {
     state[coordinate.letter][coordinate.digit]=" O ";
     nb_touch=nb_touch+1;
-    clear();
     console.log("TOUCHED")
-
   }
   else {
     state[coordinate.letter][coordinate.digit]="   ";
-    clear();
     console.log("MISSED");}
 }
-
 
 
 // check if the has winner on parcourt les coordonnées gagnantes et on vérifie si on a XXX ou AAA si on retourne true c'est bon
@@ -112,32 +111,6 @@ function hasWinner() {
   };
 }
 
-function initWin() {
-  fs.readFile("./boat.json", (error, data) => {
-    if (error) {
-      console.warn(error);
-      return;
-    }
-    WINNING_BOAT1 = JSON.parse(data);
-  });
-}
-
-function boatDown() {
-  let value=false;
-  let boatSink=0;
-  const letters = Object.keys(WINNING_BOAT1);
-  for (let i=0;i<letters.length;i++) {
-    let pattern="";
-    for (let j=0;j<WINNING_BOAT1[letters[i]].length;j++) {
-      pattern=`${state[WINNING_BOAT1[letters[i]][j].letter][WINNING_BOAT1[letters[i]][j].digit]}`+pattern;
-    }
-    if(pattern===" O  O  O " || pattern===" O  O " ) {
-      boatSink=boatSink+1;
-    }
-  }
-  return boatSink;
-}
-
 // Gestion du retour de la fonction
 function handleInput(input) {
   const coordinate = getCoordinate(input);
@@ -145,7 +118,6 @@ function handleInput(input) {
     updateState(coordinate);
     if (hasWinner()) {
       renderBoard();
-      console.log(`Number of boat SINK: ${quantityBoat} /${quantityBoat}`);
       console.log(`Congratulations you won! ＼(＾O＾)／`);
       reader.close();
     }
@@ -160,22 +132,13 @@ function handleInput(input) {
 
 function launchBomb() {
   renderBoard();
-  let nbBoat=boatDown();
-  if (nbBoat!==0) {
-    console.log(`Number of boat SINK: ${nbBoat} /${quantityBoat}`);
-    reader.question("Where do you want to launch a Bomb? (use coordinates like B3):",  handleInput);
-  }
-  else {
-    console.log(`Number of boat SINK: 0 /${quantityBoat}`);
-    reader.question("Where do you want to launch a Bomb? (use coordinates like B3):",  handleInput)
-};
+  reader.question("Where do you want to launch a Bomb? (use coordinates like B3):",  handleInput)
 }
 
 
 function playBattle() {
-clear();
 randomBoat();
 launchBomb();
 }
-initWin();
+
 playBattle();
