@@ -1,0 +1,11 @@
+{
+  "name": "04_refactor_tic_tac_toe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tictactoe.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC"
+}
