@@ -134,7 +134,7 @@ test("publishComment", done => {
 
   publishComment(2, "name", "email", "body", result => {
     requestPromise({
-      url: "http://jsonplaceholder.typicode.com/posts",
+      url: "http://jsonplaceholder.typicode.com/comments",
       method: "POST",
       form: {
         name: "name",
@@ -156,8 +156,7 @@ test("updatePostTitle", done => {
       url: "http://jsonplaceholder.typicode.com/posts/2",
       method: "PUT",
       form: {
-        title: "title",
-        postId: 2
+        title: "title"
       }
     }).then(testResult => {
       expect(JSON.parse(result)).toEqual(JSON.parse(testResult));
@@ -173,8 +172,7 @@ test("updatePostBody", done => {
       url: "http://jsonplaceholder.typicode.com/posts/2",
       method: "PUT",
       form: {
-        body: "body",
-        postId: 2
+        body: "body"
       }
     }).then(testResult => {
       expect(JSON.parse(result)).toEqual(JSON.parse(testResult));
@@ -191,8 +189,7 @@ test("updatePost", done => {
       method: "PUT",
       form: {
         title: "title",
-        body: "body",
-        postId: 2
+        body: "body"
       }
     }).then(testResult => {
       expect(JSON.parse(result)).toEqual(JSON.parse(testResult));
