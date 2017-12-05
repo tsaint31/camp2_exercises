@@ -5,15 +5,8 @@ const reader = readline.createInterface({
   output: process.stdout
 });
 
-
-// const WINNING_BOAT = [
-//   {letter: "A", digit: 0},
-//   {letter: "A", digit: 1},
-//   {letter: "B", digit: 3},
-//   {letter: "B", digit: 4},
-//   {letter: "B", digit: 5}
-// ];
 const WINNING_BOAT=[];
+// const WINNING_BOAT1=[];
 
 
 let nb_touch=0;
@@ -37,14 +30,15 @@ function randomBoat() {
     console.warn(error);
     return;
     }
+    const quantityBoat=3;
+    const possibleBoat=10;
     const parsedData = JSON.parse(data);
-    const numero = Math.floor(Math.random()*3);
+    // const WINNING_BOAT1=parsedData;
+    for (let j=0;j<quantityBoat;j++) {
+    const numero = Math.floor(Math.random()*(possibleBoat/quantityBoat)+((possibleBoat/quantityBoat)*j));
     for (let i=0;i<parsedData[numero].length;i++) {
       WINNING_BOAT.push(parsedData[numero][i]);
     }
-    const numero2 = Math.floor(Math.random()*3)+3;
-    for (let i=0;i<parsedData[numero2].length;i++) {
-      WINNING_BOAT.push(parsedData[numero2][i]);
     }
   });
 }
@@ -96,6 +90,7 @@ function updateState(coordinate) {
   if (WINNING_BOAT.some(isInList)) {
     state[coordinate.letter][coordinate.digit]=" O ";
     nb_touch=nb_touch+1;
+    boatDown();
     console.log("TOUCHED")
   }
   else {
@@ -104,12 +99,23 @@ function updateState(coordinate) {
 }
 
 
+
 // check if the has winner on parcourt les coordonnées gagnantes et on vérifie si on a XXX ou AAA si on retourne true c'est bon
 function hasWinner() {
   if (nb_touch===WINNING_BOAT.length) {
     return true;
   };
 }
+
+// function boatDown() {
+//   for (let i=0;i<parsedData;i++) {
+//   const pattern =
+//     parsedData[i]
+//     .map((coordinate) => state[coordinate.letter][coordinate.digit])
+//     .join("");
+//   return pattern === "OOO" || pattern === "OO" ;
+//   }
+// }
 
 // Gestion du retour de la fonction
 function handleInput(input) {
