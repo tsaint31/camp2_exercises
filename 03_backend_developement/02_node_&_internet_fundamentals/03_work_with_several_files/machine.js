@@ -1,6 +1,7 @@
 const container = require("./container");
 
 const machine = {
+  litersOfCoffee: 0,
   fillWithLitersOfCoffee: function(nbLiter) {
     return container.putLitersOfCoffee(nbLiter);
   },
