@@ -1,0 +1,11 @@
+{
+  "name": "03_work_with_several_files",
+  "version": "1.0.0",
+  "description": "",
+  "main": "container.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC"
+}
