@@ -23,6 +23,11 @@ describe("a block of tests", function() {
     const result = to_words.toWords("thi!erry");
     expect(result).toEqual(["thi","erry"]);
   });
+  test("Split sentence si on a un '", function() {
+    // expect something
+    const result = to_words.toWords("thi'erry");
+    expect(result).toEqual(["thi","erry"]);
+  });
   test("Split sentence si on a un ,", function() {
     // expect something
     const result = to_words.toWords("thi,erry");
@@ -51,12 +56,17 @@ describe("a block of tests", function() {
   test("Split sentence si on a un ]", function() {
     // expect something
     const result = to_words.toWords("thi]erry");
-    expect(result).toEqual(["thi]erry"]);
+    expect(result).toEqual(["thi","erry"]);
   });
   test("Split sentence si on a un [", function() {
     // expect something
     const result = to_words.toWords("thi[erry");
-    expect(result).toEqual(["thi[erry"]);
+    expect(result).toEqual(["thi","erry"]);
+  });
+  test("Split sentence si on a un ;", function() {
+    // expect something
+    const result = to_words.toWords("thi;erry");
+    expect(result).toEqual(["thi","erry"]);
   });
   test("Split sentence si on a une phrase vide", function() {
     // expect something
