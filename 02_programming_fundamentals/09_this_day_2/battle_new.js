@@ -6,8 +6,9 @@ const reader = readline.createInterface({
 });
 
 const WINNING_BOAT=[];
-// const WINNING_BOAT1=[];
-
+let WINNING_BOAT1={};
+const quantityBoat=3;
+const possibleBoat=10;
 
 let nb_touch=0;
 
@@ -30,8 +31,6 @@ function randomBoat() {
     console.warn(error);
     return;
     }
-    const quantityBoat=3;
-    const possibleBoat=10;
     const parsedData = JSON.parse(data);
     // const WINNING_BOAT1=parsedData;
     for (let j=0;j<quantityBoat;j++) {
@@ -90,8 +89,8 @@ function updateState(coordinate) {
   if (WINNING_BOAT.some(isInList)) {
     state[coordinate.letter][coordinate.digit]=" O ";
     nb_touch=nb_touch+1;
-    boatDown();
     console.log("TOUCHED")
+
   }
   else {
     state[coordinate.letter][coordinate.digit]="   ";
@@ -107,15 +106,31 @@ function hasWinner() {
   };
 }
 
-// function boatDown() {
-//   for (let i=0;i<parsedData;i++) {
-//   const pattern =
-//     parsedData[i]
-//     .map((coordinate) => state[coordinate.letter][coordinate.digit])
-//     .join("");
-//   return pattern === "OOO" || pattern === "OO" ;
-//   }
-// }
+function initWin() {
+  fs.readFile("./boat.json", (error, data) => {
+    if (error) {
+      console.warn(error);
+      return;
+    }
+    WINNING_BOAT1 = JSON.parse(data);
+  });
+}
+
+function boatDown() {
+  let value=false;
+  let boatSink=0;
+  const letters = Object.keys(WINNING_BOAT1);
+  for (let i=0;i<letters.length;i++) {
+    let pattern="";
+    for (let j=0;j<WINNING_BOAT1[letters[i]].length;j++) {
+      pattern=`${state[WINNING_BOAT1[letters[i]][j].letter][WINNING_BOAT1[letters[i]][j].digit]}`+pattern;
+    }
+    if(pattern===" O  O  O " || pattern===" O  O " ) {
+      boatSink=boatSink+1;
+    }
+  }
+  return boatSink;
+}
 
 // Gestion du retour de la fonction
 function handleInput(input) {
@@ -124,6 +139,7 @@ function handleInput(input) {
     updateState(coordinate);
     if (hasWinner()) {
       renderBoard();
+      console.log(`Number of boat SINK: ${quantityBoat}`);
       console.log(`Congratulations you won! ＼(＾O＾)／`);
       reader.close();
     }
@@ -138,7 +154,15 @@ function handleInput(input) {
 
 function launchBomb() {
   renderBoard();
-  reader.question("Where do you want to launch a Bomb? (use coordinates like B3):",  handleInput)
+  let nbBoat=boatDown();
+  if (nbBoat!==0) {
+    console.log(`Number of boat SINK: ${nbBoat}`);
+    reader.question("Where do you want to launch a Bomb? (use coordinates like B3):",  handleInput);
+  }
+  else {
+    console.log("no boat SINK");
+    reader.question("Where do you want to launch a Bomb? (use coordinates like B3):",  handleInput)
+};
 }
 
 
@@ -146,5 +170,5 @@ function playBattle() {
 randomBoat();
 launchBomb();
 }
-
+initWin();
 playBattle();
