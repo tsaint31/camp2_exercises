@@ -7,6 +7,12 @@ module.exports = {
         "node": true
     },
     "extends": "eslint:recommended",
+    "globals": {
+        "test": false,
+        "expect": false,
+        "jest": false,
+        "describe": false
+    },
     "rules": {
         "indent": ["error", 2], // 2 spaces indentation
         "linebreak-style": ["error","unix"], // line-breaks are unix
