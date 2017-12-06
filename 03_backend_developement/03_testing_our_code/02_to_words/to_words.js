@@ -1,7 +1,14 @@
 function toWords(sentence) {
-  const allWords = sentence.split(/[.?!, :]+/);
-
-  return allWords.filter(word => word !== "");
+  if (sentence!=="") {
+    const allWords = sentence.split(/[.?!, :]+/);
+    return allWords.filter(word => word !== "");
+  }
+  else {
+    const allWords = [];
+    return allWords;
+  }
 }
 
-module.exports = toWords;
+module.exports = {
+  toWords: toWords
+};
