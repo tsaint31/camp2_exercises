@@ -22,7 +22,7 @@ function renderBoard(state) {
   for (let i=0;i<letters.length;i++) {
     const cells = state[letters[i]];
     rows =rows+renderRow(letters[i],cells);
-    if (i!==letters.length-1) {
+    if (i<2) {
       rows =`${rows}\n`;}
   }
   const header = "  1   2   3";
