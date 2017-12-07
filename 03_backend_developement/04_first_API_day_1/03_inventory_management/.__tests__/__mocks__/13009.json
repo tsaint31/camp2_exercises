@@ -1,0 +1,46 @@
+{
+  "html_attributions" : [],
+  "results" : [
+    {
+      "formatted_address" : "Chemin du Roi d'Espagne, 13009 Marseille, France",
+      "geometry" : {
+        "location" : {
+          "lat" : 43.2396603,
+          "lng" : 5.3966047
+        },
+        "viewport" : {
+          "northeast" : {
+            "lat" : 43.2412037302915,
+            "lng" : 5.397884780291503
+          },
+          "southwest" : {
+            "lat" : 43.2385057697085,
+            "lng" : 5.395186819708498
+          }
+        }
+      },
+      "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/shopping-71.png",
+      "id" : "1fa7ed263f966ad591cfad1e7ec9d5d5ce1c03f9",
+      "name" : "Decathlon Marseille Bonneveine",
+      "opening_hours" : {
+        "open_now" : true,
+        "weekday_text" : []
+      },
+      "photos" : [
+        {
+          "height" : 2322,
+          "html_attributions" : [
+            "\u003ca href=\"https://maps.google.com/maps/contrib/116501365326488061946/photos\"\u003emehdi metwaly\u003c/a\u003e"
+          ],
+          "photo_reference" : "CmRaAAAAWsEL_gQt2_PTZDDEMDhRqQoeOZK0rMnOWfwkVGV-cPp-PhkZGCBgaag1_15VIqPLJytmiBteGMpmKVtIR5a0U1FMQdQmgb4DCi_VlQ02X4H4XH_ca8O-4JtDgO9dWVhwEhC6pIi0OzEfn1SiM_5VQMolGhRJr71O5NPeAoW5iXDkWw5DMOgnfw",
+          "width" : 4128
+        }
+      ],
+      "place_id" : "ChIJ6wJkJX64yRIRb-bbNpBTOz0",
+      "rating" : 4.1,
+      "reference" : "CmRRAAAAteU5OnuG5blkQSUNh7u37oBPGphwS1J8lLmHJlI_1n_QfhIon-JfJ_dr8u0BNhu4uPXLQXzZqnW3gFa4N_CcaOW6tRfMdx-ZaEQMr79jKd-cHfgqFVX3T-AApmMxN5YQEhCDe6hSpAHxzDarVCR7ciX2GhQwyJolwOb4wUX_gxuAIj72ytY-EQ",
+      "types" : [ "shoe_store", "store", "point_of_interest", "establishment" ]
+    }
+  ],
+  "status" : "OK"
+}
