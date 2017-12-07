@@ -9,6 +9,10 @@ const resultFile = () =>
 
 let curlHeader;
 
+afterEach(() => {
+  fs.existsSync(resultFile()) && fs.unlinkSync(resultFile());
+});
+
 beforeAll(() => {
   exec("curl --version").then(([stdout]) => {
     curlHeader = stdout

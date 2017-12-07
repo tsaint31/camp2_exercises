@@ -6,6 +6,10 @@ const commandFile = () =>
   path.resolve(__dirname, "../04_brussels_weather_in_french.sh");
 const resultFile = () => path.resolve(__dirname, "../brussels.weather");
 
+afterEach(() => {
+  fs.existsSync(resultFile()) && fs.unlinkSync(resultFile());
+});
+
 test("Check that the weather file exists", done => {
   expect.assertions(1);
 
