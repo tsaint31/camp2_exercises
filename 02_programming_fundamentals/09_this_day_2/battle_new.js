@@ -1,5 +1,7 @@
 const readline = require('readline');
 const fs = require("fs");
+const clear = require("cli-clear");
+
 const reader = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -8,7 +10,7 @@ const reader = readline.createInterface({
 const WINNING_BOAT=[];
 let WINNING_BOAT1={};
 const quantityBoat=3;
-const possibleBoat=10;
+const possibleBoat=0;
 
 let nb_touch=0;
 
@@ -32,6 +34,8 @@ function randomBoat() {
     return;
     }
     const parsedData = JSON.parse(data);
+    const possibleBoatnumber = Object.keys(parsedData);
+    const possibleBoat=possibleBoatnumber.length;
     // const WINNING_BOAT1=parsedData;
     for (let j=0;j<quantityBoat;j++) {
     const numero = Math.floor(Math.random()*(possibleBoat/quantityBoat)+((possibleBoat/quantityBoat)*j));
@@ -89,11 +93,13 @@ function updateState(coordinate) {
   if (WINNING_BOAT.some(isInList)) {
     state[coordinate.letter][coordinate.digit]=" O ";
     nb_touch=nb_touch+1;
+    clear();
     console.log("TOUCHED")
 
   }
   else {
     state[coordinate.letter][coordinate.digit]="   ";
+    clear();
     console.log("MISSED");}
 }
 
@@ -139,7 +145,7 @@ function handleInput(input) {
     updateState(coordinate);
     if (hasWinner()) {
       renderBoard();
-      console.log(`Number of boat SINK: ${quantityBoat}`);
+      console.log(`Number of boat SINK: ${quantityBoat} /${quantityBoat}`);
       console.log(`Congratulations you won! ＼(＾O＾)／`);
       reader.close();
     }
@@ -156,17 +162,18 @@ function launchBomb() {
   renderBoard();
   let nbBoat=boatDown();
   if (nbBoat!==0) {
-    console.log(`Number of boat SINK: ${nbBoat}`);
+    console.log(`Number of boat SINK: ${nbBoat} /${quantityBoat}`);
     reader.question("Where do you want to launch a Bomb? (use coordinates like B3):",  handleInput);
   }
   else {
-    console.log("no boat SINK");
+    console.log(`Number of boat SINK: 0 /${quantityBoat}`);
     reader.question("Where do you want to launch a Bomb? (use coordinates like B3):",  handleInput)
 };
 }
 
 
 function playBattle() {
+clear();
 randomBoat();
 launchBomb();
 }
