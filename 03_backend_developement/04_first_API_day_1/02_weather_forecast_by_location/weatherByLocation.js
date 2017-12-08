@@ -1,7 +1,7 @@
 const request = require("request");
 
 const MAPWEATHER_ID=process.env.MAPWEATHER_ID;
-// const done=[];
+let done="";
 function returnDate(table) {
   const returnObject={
     date:"",
@@ -33,15 +33,15 @@ function returnDate(table) {
 }
 
 
-// function uniqueDate(eachHour){
-//   if (done.indexOf(eachHour.date) === -1) {
-//     done.push(eachHour.date);
-//     return true;
-//   }
-//   else {
-//     return false;
-//   }
-// }
+function uniqueDate(eachHour){
+  if (done!==eachHour.date) {
+    done=eachHour.date;
+    return true;
+  }
+  else {
+    return false;
+  }
+}
 
 function weatherByLatitudeAndLongitude(lat,lon) {
   const resultlatlon=request(
@@ -53,9 +53,8 @@ function weatherByLatitudeAndLongitude(lat,lon) {
     function (error,response,body) {
       const result=JSON.parse(body);
       const output=result.list.map(returnDate);
-      // // console.log(output);
-      // // const filterOutput = output.filter(uniqueDate);
-      // console.log(filterOutput);
+      const filterOutput = output.filter(uniqueDate);
+      console.log(filterOutput);
       return output;
     }
   );
@@ -71,9 +70,8 @@ function weatherByZipcode(zip,pays) {
     function (error,response,body) {
       const result=JSON.parse(body);
       const output=result.list.map(returnDate);
-      console.log(output);
-      // const filterOutput = output.filter(uniqueDate);
-      // console.log(filterOutput);
+      const filterOutput = output.filter(uniqueDate);
+      console.log(filterOutput);
       return output;
     }
   );

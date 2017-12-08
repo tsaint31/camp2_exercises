@@ -2,12 +2,14 @@ const request = require("request");
 
 const API_KEY = process.env.OPENWEATHER_API_KEY;
 
+// le programme lance le fetch avec le callback qui fait la transformation du json
 function weatherByLatitudeAndLongitude(latitude, longitude, callback) {
   fetchForecastsByLatitudeAndLongitude(latitude, longitude, function(json) {
     callback(json.list.map(reformatForecast));
   });
 }
 
+// appel de l'API qui retourne le json
 function fetchForecastsByLatitudeAndLongitude(latitude, longitude, callback) {
   request(
     {
@@ -22,6 +24,7 @@ function fetchForecastsByLatitudeAndLongitude(latitude, longitude, callback) {
   );
 }
 
+// fonction qui transforme le json
 function reformatForecast(forecast) {
   return {
     date: timestampToDate(forecast.dt),
@@ -34,12 +37,13 @@ function reformatForecast(forecast) {
   };
 }
 
+// fonction qui transforme la date
 function timestampToDate(timestamp) {
   const date = new Date(timestamp * 1000);
 
   return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
 }
-
+//lancement du programme avec un callback qui fait un console log du resultat
 weatherByLatitudeAndLongitude(35, 139, function(forecasts) {
   console.log(forecasts);
 });
