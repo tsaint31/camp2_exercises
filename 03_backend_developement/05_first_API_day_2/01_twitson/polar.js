@@ -1,24 +1,22 @@
-const oauth = require("OAuth");
-const OAuth = new oauth.OAuth(
-  process.env.POLAR_CLIENT_ID,
-  process.env.POLAR_CLIENT_SECRET
-);
-
-const url = encodeURI("https://flow.polar.com/oauth2/authorization?response_type=code&client_id=");
-
-// https://flow.polar.com/oauth2/authorization?response_type=code&scope={SCOPE}&client_id={CLIENT_ID}&state={STATE}
 
 
-function retrieveTweets(callback) {
-  OAuth.get(url+process.env.POLAR_CLIENT_ID, function (error, data) {
-    const text=JSON.parse(data);
-    console.log(text);
-    callback(text);
+const request = require("request");
 
-  });
-}
-function callback(text) {
-  console.log(text);
+const POLAR_CLIENT_ID=process.env.POLAR_CLIENT_ID;
+
+// https://flow.polar.com/oauth2/authorization?response_type=codeclient_id=
+
+function polarAuthentification(CLIENT_ID) {
+  request(
+    {
+      url: `https://flow.polar.com/oauth2/authorization?response_type=code&client_id=${CLIENT_ID}`,
+      method: "GET"
+    },
+    function (error,response,body) {
+      console.log(body);
+      return body;
+    }
+  );
 }
 
-retrieveTweets(callback);
+polarAuthentification(POLAR_CLIENT_ID);
