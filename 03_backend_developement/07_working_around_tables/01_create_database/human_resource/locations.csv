@@ -1,0 +1,24 @@
+"id","street_address","postal_code","city","state_province","country_id"
+1,"1297 Via Cola di Rie","989","Roma","",15
+2,"93091 Calle della Testa","10934","Venice","",15
+3,"2017 Shinjuku-ku","1689","Tokyo","Tokyo Prefecture",16
+4,"9450 Kamiya-cho","6823","Hiroshima","",16
+5,"2014 Jabberwocky Rd","26192","Southlake","Texas",23
+6,"2011 Interiors Blvd","99236","South San Francisco","California",23
+7,"2007 Zagora St","50090","South Brunswick","New Jersey",23
+8,"2004 Charade Rd","98199","Seattle","Washington",23
+9,"147 Spadina Ave","M5V 2L7","Toronto","Ontario",5
+10,"6092 Boxwood St","YSW 9T2","Whitehorse","Yukon",5
+11,"40-5-12 Laogianggen","190518","Beijing","",7
+12,"1298 Vileparle (E)","490231","Bombay","Maharashtra",14
+13,"12-98 Victoria Street","2901","Sydney","New South Wales",2
+14,"198 Clementi North","540198","Singapore","",21
+15,"8204 Arthur St","EC2A","London","",22
+16,"Magdalen Centre", "OX9 9ZB","Oxford","",22
+17,"9702 Chester Road","9629850293","Stretford","Manchester",22
+18,"Schwanthalerstr. 7031","80925","Munich","Bavaria",8
+19,"Rua Frei Caneca 1360","01307-002","Sao Paulo","Sao Paulo",4
+20,"20 Rue des Corps-Saints","1730","Geneva","Geneve",6
+21,"Murtenstrasse 921","3095","Bern","BE",6
+22,"Pieter Breughelstraat 837","3029SK","Utrecht","Utrecht",20
+23,"Mariano Escobedo 9991","11932","Mexico City","Distrito Federal",18

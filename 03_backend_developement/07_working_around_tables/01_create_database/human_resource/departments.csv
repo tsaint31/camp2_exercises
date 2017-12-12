@@ -1,0 +1,28 @@
+"id","name","manager_id","location_id"
+1,"Administration",1,8
+2,"Marketing",101,9
+3,"Purchasing",15,8
+4,"Human Resources",5,15
+5,"Shipping",22,6
+6,"IT",4,5
+7,"Public Relations",105,18
+8,"Sales",46,16
+9,"Executive",1,8
+10,"Finance",9,8
+11,"Accounting",106,8
+12,"Treasury",,8
+13,"Corporate Tax",,8
+14,"Control And Credit",,8
+15,"Shareholder Services",,8
+16,"Benefits",,8
+17,"Manufacturing",,8
+18,"Construction",,8
+19,"Contracting",,8
+20,"Operations",,8
+21,"IT Support",,8
+22,"NOC",,8
+23,"IT Helpdesk",,8
+24,"Government Sales",,8
+25,"Retail Sales",,8
+26,"Recruiting",,8
+27,"Payroll",,8
