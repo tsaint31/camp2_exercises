@@ -1,75 +1,74 @@
-const request = require("request");
-const express = require("express");
-const fetch = require("node-fetch");
-const app = express();
-const port = process.env.PORT || 3000;
-const STRAVA_ID=process.env.STRAVA_ID;
-const STRAVA_SECRET=process.env.STRAVA_SECRET;
+require('dotenv').config()
+const qs = require('qs')
+const axios = require('axios')
+const { router, get } = require('microrouter')
+const redirect = require('micro-redirect')
+const uid = require('uid-promise')
 
-// https://www.strava.com/oauth/authorize?response_type=code&client_id=    &redirect_uri=http://localhost:3000
-// fetch(
-//   "https://www.strava.com/oauth/authorize?response_type=code&client_id=     redirect_uri=http://localhost:3000",
-//   {method: "GET"}
-// )
-//   .then((result) => {
-//     console.log(result);
-//   })
-//   .catch((error) => {
-//     console.warn(error);
-//   });
-// https://www.strava.com/oauth/authorize?response_type=code&client_id=     &redirect_uri=http://localhost:3000
+const stravaUrl = 'https://www.strava.com/oauth/'
 
-app.listen(port, function () {
-  console.log("Server listening on port:" + port);
-});
+const states = []
 
-app.get("/", function(request, result) {
-  const code = request.param("code");
-  getToken(code);
-});
-
-function getToken(code){
-  request(
-    {
-      url: `https://www.strava.com/oauth/token?code=${code}&client_secret=${STRAVA_SECRET}&client_id=${STRAVA_ID}`,
-      method: "POST",
-    },
-    function(error, response, result) {
-      const Token= JSON.parse(result).access_token;
-      searchUserInfo(Token);
-      searchUserActivities(Token);
-    }
-  );
+const redirectWithQueryString = (res, data) => {
+  const location = `${process.env.STRAVA_REDIRECT}?${qs.stringify(data)}`
+  return redirect(res, 302, location)
 }
-// 14536012
-function searchUserInfo(token) {
 
-  const headers = {"Authorization": `Bearer ${token}`};
-  fetch("https://www.strava.com/api/v3/athletes/14536012",
-    {
-      method: "GET",
-      headers: headers
+const login = async (req, res) => {
+  if (!process.env.STRAVA_CLIENT_ID || !process.env.STRAVA_CLIENT_SECRET || !process.env.STRAVA_REDIRECT) {
+    return console.error('In order to request an access token from Strava, you must supply a STRAVA_CLIENT_ID, a STRAVA_CLIENT_SECRET, and a STRAVA_REDIRECT.')
+  }
+
+  const state = await uid(20)
+  states.push(state)
+
+  const qsParams = {
+    client_id: process.env.STRAVA_CLIENT_ID,
+    redirect_uri: 'http://localhost:3000/callback',
+    response_type: 'code',
+    state
+  }
+  const location = `${stravaUrl}authorize?${qs.stringify(qsParams)}`
+
+  return redirect(res, 302, location)
+}
+
+const callback = async (req, res) => {
+  const { code, state } = req.query
+
+  if (!code || !state) {
+    return redirectWithQueryString(res, {
+      error: 'A response code and a state are required in order to authorize.'
     })
-    .then(function(res) {
-      return res.json();
-    }).then(function(body) {
-      console.log("USER INFO");
-      console.log(body);
-    });
-}
-
-function searchUserActivities(token) {
-
-  const headers = {"Authorization": `Bearer ${token}`};
-  fetch("https://www.strava.com/api/v3/athlete/activities",
-    {
-      method: "GET",
-      headers: headers
+  }
+  if (!states.includes(state)) {
+    return redirectWithQueryString(res, {
+      error: 'States must include the authorized state created in the login function.'
     })
-    .then(function(res) {
-      return res.json();
-    }).then(function(body) {
-      console.log("USER ACTIVITY");
-      console.log(body);
-    });
+  }
+
+  const qsParams = {
+    code,
+    client_id: process.env.STRAVA_CLIENT_ID,
+    client_secret: process.env.STRAVA_CLIENT_SECRET
+  }
+
+  return axios({
+    method: 'post',
+    url: `${stravaUrl}token?${qs.stringify(qsParams)}`
+  })
+  .then((response) => {
+    const data = qs.parse(response.data)
+
+    return redirectWithQueryString(res, data)
+  })
+  .catch((err) => {
+    console.error(err)
+    return redirectWithQueryString(res, err)
+  })
 }
+
+module.exports = router(
+  get('/login', login),
+  get('/callback', callback)
+)
