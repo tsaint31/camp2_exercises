@@ -12,11 +12,6 @@
     "jest": "^21.2.1"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "fetch": "^1.1.0",
-    "node-fetch": "^1.7.3",
-=======
->>>>>>> W3 D5 api second
     "oauth": "^0.9.15",
     "request": "^2.83.0"
   }
