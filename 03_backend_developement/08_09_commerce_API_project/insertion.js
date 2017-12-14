@@ -1,7 +1,14 @@
 const { Pool } = require("pg");
 const pool = new Pool();
+<<<<<<< HEAD
 
 function insertionData(result,data){
+=======
+const RET = require("./retrieve");
+
+
+function insertionData(result,data,cat){
+>>>>>>> W4 D4 project
   pool.connect((err, client,done) => {
     if (err) throw err;
     for (let i=0;i<result.length;i++) {
@@ -30,12 +37,43 @@ function insertionData(result,data){
             }
           });
         break;
+<<<<<<< HEAD
+=======
+      case "category_products":
+        client.query(`INSERT INTO category_products (id_product,id_category) VALUES ($1::uuid,'${cat}');`,
+          [result[i].id], (err, res) => {
+            if (err) {
+            // console.log(err.stack);
+            }
+          });
+        break;
+>>>>>>> W4 D4 project
       }
     }
     done();
   });
 }
 
+<<<<<<< HEAD
+=======
+// function insertionCatProd(result,data,categ,index){
+//   pool.connect((err, client,done) => {
+//     if (err) throw err;
+//     for (let i=0;i<result.length;i++) {
+//       client.query(`INSERT INTO category_products (id_product,id_category) VALUES ($1::uuid,'${categ[index]}');`,
+//         [result[i].id], (err, res) => {
+//           if (err) {
+//             // console.log(err.stack);
+//           }
+//         });
+//     }
+//     console.log("hello");
+//     RET.retrieveCatProd(categ[index+1],insertionCatProd);
+//     done();
+//   });
+// }
+
+>>>>>>> W4 D4 project
 module.exports = {
   insertionData: insertionData,
 };
