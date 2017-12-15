@@ -1,4 +1,5 @@
 const retrieve = require("./retrieve");
+jest.mock("./__mocks__/retrieve");
 
 describe("retrieve the datas from the API", function() {
   test("retrieveBrands list", (done) => {
