@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1513346330994" clover="3.2.0">
+  <project timestamp="1513346330994" name="All files">
+    <metrics statements="13" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="7" elements="22" coveredelements="18" complexity="0" loc="13" ncloc="13" packages="1" files="1" classes="1">
+      <file name="product.js" path="/Users/Thierry/Workspace/camp2_exercises/03_backend_developement/10_promises/01_node_fetch/product.js">
+        <metrics statements="13" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="7"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="18" count="5" type="stmt"/>
+        <line num="19" count="5" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="28" count="5" type="stmt"/>
+        <line num="32" count="5" type="stmt"/>
+        <line num="34" count="5" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+      </file>
+    </metrics>
+  </project>
+</coverage>

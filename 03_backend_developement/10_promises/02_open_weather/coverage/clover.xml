@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1513351173006" clover="3.2.0">
+  <project timestamp="1513351173006" name="All files">
+    <metrics statements="33" coveredstatements="31" conditionals="2" coveredconditionals="2" methods="11" coveredmethods="9" elements="46" coveredelements="42" complexity="0" loc="33" ncloc="33" packages="1" files="1" classes="1">
+      <file name="weather.js" path="/Users/Thierry/Workspace/camp2_exercises/03_backend_developement/10_promises/02_open_weather/weather.js">
+        <metrics statements="33" coveredstatements="31" conditionals="2" coveredconditionals="2" methods="11" coveredmethods="9"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="44" count="80" type="stmt"/>
+        <line num="54" count="80" type="stmt"/>
+        <line num="56" count="80" type="stmt"/>
+        <line num="65" count="80" type="stmt"/>
+        <line num="66" count="80" type="stmt"/>
+        <line num="67" count="80" type="stmt"/>
+        <line num="68" count="80" type="stmt"/>
+        <line num="69" count="80" type="stmt"/>
+        <line num="70" count="80" type="stmt"/>
+        <line num="75" count="80" type="cond" truecount="2" falsecount="0"/>
+        <line num="76" count="12" type="stmt"/>
+        <line num="77" count="12" type="stmt"/>
+        <line num="80" count="68" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
+        <line num="85" count="1" type="stmt"/>
+        <line num="87" count="1" type="stmt"/>
+      </file>
+    </metrics>
+  </project>
+</coverage>
