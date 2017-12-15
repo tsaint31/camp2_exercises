@@ -1,9 +1,7 @@
 const { Pool } = require("pg");
 const pool = new Pool();
-const RET = require("./retrieve");
 
-
-function insertionData(result,data,cat){
+function insertionData(result,data){
   pool.connect((err, client,done) => {
     if (err) throw err;
     for (let i=0;i<result.length;i++) {
@@ -32,36 +30,11 @@ function insertionData(result,data,cat){
             }
           });
         break;
-      case "category_products":
-        client.query(`INSERT INTO category_products (id_product,id_category) VALUES ($1::uuid,'${cat}');`,
-          [result[i].id], (err, res) => {
-            if (err) {
-            // console.log(err.stack);
-            }
-          });
-        break;
       }
     }
     done();
   });
 }
-
-// function insertionCatProd(result,data,categ,index){
-//   pool.connect((err, client,done) => {
-//     if (err) throw err;
-//     for (let i=0;i<result.length;i++) {
-//       client.query(`INSERT INTO category_products (id_product,id_category) VALUES ($1::uuid,'${categ[index]}');`,
-//         [result[i].id], (err, res) => {
-//           if (err) {
-//             // console.log(err.stack);
-//           }
-//         });
-//     }
-//     console.log("hello");
-//     RET.retrieveCatProd(categ[index+1],insertionCatProd);
-//     done();
-//   });
-// }
 
 module.exports = {
   insertionData: insertionData,

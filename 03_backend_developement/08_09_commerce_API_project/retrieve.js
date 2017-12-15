@@ -31,19 +31,6 @@ function retrieveCatProd(categ,index,callback) {
   }
 }
 
-function retrieveData() {
-  retrieve(insertion.insertionData,"categories");
-  retrieve(insertion.insertionData,"brands");
-  retrieve(insertion.insertionData,"products");
-  retrieve(CatProd,"categories");
-}
-
-function CatProd(result) {
-  const categ=result;
-  const index=0;
-  retrieveCatProd(categ,index,insertionCatProd);
-}
-
 function insertionCatProd(result,data,categ,index){
   pool.connect((err, client,done) => {
     if (err) throw err;
@@ -59,6 +46,21 @@ function insertionCatProd(result,data,categ,index){
     done();
   });
 }
+
+
+function retrieveData() {
+  retrieve(insertion.insertionData,"categories");
+  retrieve(insertion.insertionData,"brands");
+  retrieve(insertion.insertionData,"products");
+  retrieve(CatProd,"categories");
+}
+
+function CatProd(result) {
+  const categ=result;
+  const index=0;
+  retrieveCatProd(categ,index,insertionCatProd);
+}
+
 
 retrieveData();
 
