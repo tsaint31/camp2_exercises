@@ -104,7 +104,7 @@ test("should have a span with the classes emphasis and important that is bold, i
     .capture(() => {
       const span = document.querySelector("span.important.emphasis");
       return span
-        ? getComputedStyle(span).getPropertyValue("background-color")
+        ? getComputedStyle(span).getPropertyValue("color")
         : "";
     })
     .run()
