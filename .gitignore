@@ -2,3 +2,4 @@ node_modules
 *.result
 *.weather
 *var.env
+*01_HTML_&_CSS*
