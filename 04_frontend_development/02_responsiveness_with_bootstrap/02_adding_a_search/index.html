@@ -34,7 +34,27 @@
     </div>
     <script src="./departments.js"></script>
     <script>
-      // Your code here
+    let listdep=document.getElementById("department-list")
+    DEPARTMENTS.forEach(function(element) {
+      listdep.innerHTML=listdep.innerHTML+`<li>${element}</li>`
+    });
+    const myInput = document.querySelector("#search-department");
+    myInput.addEventListener("input", function() {
+      displayDepartments(this.value);
+    });
+
+    function displayDepartments(depart) {
+      depart=depart.toUpperCase();
+      let listdep=document.getElementById("department-list");
+      listdep.innerHTML="";
+      DEPARTMENTS.forEach(function(element) {
+        if (element.includes(depart))
+        {
+        listdep.innerHTML=listdep.innerHTML+`<li>${element}</li>`;
+        }
+      });
+    }
+
     </script>
   </body>
 </html>

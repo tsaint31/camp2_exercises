@@ -102,12 +102,6 @@ const DEPARTMENTS = [
   "RÉUNION"
 ];
 
-function displayDepartments(departments) {
-  const container = document.querySelector("#department-list");
-  container.innerHTML = departments.map(function(department) {
-    return `<li class="list-group-item">${department}</li>`
-  }).join("")
-}
 
 if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
   module.exports = DEPARTMENTS;
