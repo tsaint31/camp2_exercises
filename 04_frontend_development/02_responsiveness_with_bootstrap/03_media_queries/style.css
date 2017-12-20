@@ -1,0 +1,28 @@
+
+
+body{
+  width:475px;
+  margin:auto;
+}
+
+.logo{
+  height: 475px;
+  width: 475px;
+}
+
+@media (min-width: 1000px){
+  .logo {
+  background: url("./charizard.png");
+  }
+}
+
+@media (max-width: 1000px){
+  .logo{
+  background: url("./charmeleon.png");
+  }
+}
+
+@media (max-width: 600px){
+  .logo{
+  background: url("./charmander.png");
+  }
