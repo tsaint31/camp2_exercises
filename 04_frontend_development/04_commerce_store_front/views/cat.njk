@@ -1,0 +1,18 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+<div>
+    <table>
+    <tr>
+    <th>Categories</th>
+    </tr>
+    {% for element in categories %}
+    <tr>
+    <td class="text-primary">
+      <a href=/{{element.id}}>{{element.label}}</a>
+    </td>
+    </tr>
+  {% endfor %}
+</table>
+</div>
+{% endblock %}

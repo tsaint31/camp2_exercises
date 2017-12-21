@@ -1,0 +1,29 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <img class="img-thumbnail" href=/products/{{element.id}} src="https://www.decathlon.fr/media/{{list.image_path}}" alt="product">
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <h1>{{list.title}}</h1>
+        <p>{{list.min_price}} €</p>
+        {% for i in range(1, 6) -%}
+        {% if list.rating >= (i) %}
+        <span class="fa fa-star checked"></span>
+        {% elif (list.rating >= (i-0.5)) %}
+        <span class="fa fa-star-half-o checked"></span>
+        {% else %}
+        <span class="fa fa-star "></span>
+        {% endif %}
+        {%- endfor %}
+
+        <p>Description : {{list.description}}</p>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

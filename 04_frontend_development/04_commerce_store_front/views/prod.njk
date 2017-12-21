@@ -1,0 +1,33 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+    <div class="container mt-2">
+      {% set i = 1 %}
+      {% for element in categories %}
+        {% if i===1 %}
+          <div class="row mt-5">
+        {% endif %}
+
+        <div class="col-lg-4 col-sd-12">
+          <a href=/products/{{element.id}}><img class="img-thumbnail" src="https://www.decathlon.fr/media/{{element.image_path}}" alt="product"></a>
+          <a href=/products/{{element.id}}>{{element.title}}</a>
+        </div>
+        {# <div class="card-deck">
+        <div class="card" style="width: 20rem;">
+          <a href=/products/{{element.id}}><img class="img-thumbnail" src="https://www.decathlon.fr/media/{{element.image_path}}" alt="product"></a>
+          <div class="card-body">
+            <a href=/products/{{element.id}}>{{element.title}}</a></br>
+            <a href=/products/{{element.id}}>{{element.description}}</a>
+          </div>
+        </div>
+      </div> #}
+
+        {% if i===3 %}
+          </div>
+          {% set i = 1 %}
+          {% else %}
+          {% set i = i+1 %}
+        {% endif %}
+      {% endfor %}
+    </div>
+{% endblock %}
