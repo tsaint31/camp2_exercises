@@ -3,3 +3,4 @@ node_modules
 *.weather
 *var.env
 *01_HTML_&_CSS*
+*sass-cache*
