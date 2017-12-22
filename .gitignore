@@ -4,3 +4,4 @@ node_modules
 *var.env
 *01_HTML_&_CSS*
 *sass-cache*
+*node_modules*
