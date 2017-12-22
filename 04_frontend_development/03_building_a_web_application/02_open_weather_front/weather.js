@@ -33,17 +33,32 @@ app.get(`/:id`, function(request, result) {
           />
         </head>
         <body>
+        <form>
+          <div class="form-row">
+            <div>
+              <input type="text" class="form-control" placeholder="Ville" id="newCity">
+            </div>
+            <button type="button" class="btn btn-primary" id="go">Changer de ville</button>
+          </div>
+        </form>
           <div class="container">
             <div class="row justify-content-center">
               <div class="text-center" class="col">
               <h1>WEATHER OF YOUR TOWN</h1>
               <h1>${request.params.id}</h1>
+              <img class="img-fluid" src="http://openweathermap.org/img/w/${result1.weather[0].icon}.png" alt="weather view">
               <h1>${output}</h1>
-              <img class="img-fluid" src="${output}.jpg" alt="weather View">
+              <img class="img-fluid" src="${output}.jpg" alt="weather Icon"></br>
               </div>
             </div>
           </div>
-
+          <script>
+          const myInput = document.getElementById("newCity");
+           const myButton = document.getElementById("go");
+           myButton.addEventListener("click", () => {
+             window.location.href = "http://localhost:3000/" + myInput.value;
+           });
+          </script>
 
         </body>
       </html>`);

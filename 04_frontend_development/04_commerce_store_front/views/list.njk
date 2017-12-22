@@ -10,6 +10,7 @@
       <div class="col-lg-6 col-md-12">
         <h1>{{list.title}}</h1>
         <p>{{list.min_price}} €</p>
+
         {% for i in range(1, 6) -%}
         {% if list.rating >= (i) %}
         <span class="fa fa-star checked"></span>
