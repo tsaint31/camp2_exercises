@@ -1,0 +1,14 @@
+{
+  "name": "02_spread_destructuring",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^22.0.4"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "01_aquarium",
+  "version": "1.0.0",
+  "description": "",
+  "main": "01_aquarium.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^22.0.4"
+  }
+}
