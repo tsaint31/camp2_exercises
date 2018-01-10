@@ -83,12 +83,16 @@ class Table extends Component {
       <div>
         <p>
         <table>
+        <thead>
         <tr>
           <td><button onClick={this.sortid.bind(this)}> decathlon_id </button></td>
           <td><button onClick={this.sorttitle.bind(this)}> title </button></td>
           <td><button onClick={this.sortprice.bind(this)}> price </button></td>
         </tr>
+        </thead>
+        <tbody>
             {this.state.product.map(x => Tableline(x))}
+        </tbody>
         </table>
         </p>
       </div>
