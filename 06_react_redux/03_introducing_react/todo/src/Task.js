@@ -12,7 +12,7 @@ function Rows1(props){
 
   if (props.task.status) {
     customClass = "Barre";
-    deleteButton = (<button onClick={props.delete} name={props.index}> delete </button>);
+    deleteButton = (<button onClick={props.delete} > delete </button>);
   }
 
   return (
@@ -22,7 +22,7 @@ function Rows1(props){
           <label className={customClass}>
             {props.task.task}
             <input
-              name={props.index}
+              name="task"
               type="checkbox"
               checked={props.task.status}
               onChange={props.handleCheck}
@@ -39,6 +39,8 @@ class Tasklist extends Component {
   constructor(props) {
     super(props);
     this.state = { task: task, current: "" };
+    this.handleCheck=this.handleCheck.bind(this);
+    this.delete=this.delete.bind(this)
   }
 
   fetchData = evt => {
@@ -56,20 +58,17 @@ class Tasklist extends Component {
     });
   };
 
-  handleCheck(event) {
-  const target = event.target;
-  const value = target.type === 'checkbox' ? target.checked : target.value;
-  const name = target.name;
+  handleCheck(i) {
   let modifyTask = this.state.task;
-  modifyTask[name].status = !modifyTask[name].status;
+  modifyTask[i].status = !modifyTask[i].status;
   this.setState({
     task: modifyTask
   });
 }
 
-  delete(event) {
+  delete(i) {
     let deleteTask = this.state.task;
-    deleteTask.splice(event.target.name,1);
+    deleteTask.splice(i,1);
     this.setState({
       task: deleteTask
     });
@@ -102,7 +101,7 @@ class Tasklist extends Component {
               <th> list of Tasks</th>
             </tr>
           </thead>
-          <tbody>{this.state.task.map((task,i) => <Rows1 task={task} handleCheck={this.handleCheck.bind(this)} delete={this.delete.bind(this)} index={i}/>)}</tbody>
+          <tbody>{this.state.task.map((task,i) => <Rows1 key={i} task={task} handleCheck={() => this.handleCheck(i)} delete={() => this.delete(i)}/>)}</tbody>
         </table>
       </div>
     );
