@@ -42,7 +42,7 @@ module.exports = {
         "no-implicit-coercion": "error", // disallow things like `!!foo` in favor of `Boolean(foo)`
         "no-loop-func": "error", // disallow functions inside of loops
         "no-magic-numbers": ["error", { "ignoreArrayIndexes": true }], // force to name constants used several times (except for array keys)
-        "prefer-template": "warning", // suggest to use template string instead of concatenation
-        "sort-imports": "warning", // suggest alphabetical ordering for imports
+        "prefer-template": 1, // suggest to use template string instead of concatenation
+        "sort-imports": 1, // suggest alphabetical ordering for imports
     }
 };
