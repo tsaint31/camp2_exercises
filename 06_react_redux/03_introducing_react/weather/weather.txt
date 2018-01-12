@@ -1,0 +1,20 @@
+const FULL_CONTACT_KEY = process.env.FULL_CONTACT_KEY;
+const fetch = require("node-fetch");
+
+function weatherByCityName(city) {
+  return fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${MAPWEATHER_ID}&units=metric`,
+    {method: "GET"}
+  )
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(`${result.main.temp} °C`);
+      const output=result.main.temp;
+      return output;
+    })
+    .catch((error) => {
+      console.warn(error);
+    });
+}
+
+fullcontact("dominique.firinga@decathlon.com");
