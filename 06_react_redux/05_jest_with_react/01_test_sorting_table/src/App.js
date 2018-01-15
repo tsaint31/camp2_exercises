@@ -41,9 +41,9 @@ class App extends Component {
       <table>
         <thead>
           <tr>
-            <th onClick={() => this.filter("decathlon_id")}>ID</th>
-            <th onClick={() => this.filter("title")}>Title</th>
-            <th onClick={() => this.filter("price")}>Price</th>
+            <th id="th1" onClick={() => this.filter("decathlon_id")}>ID</th>
+            <th  onClick={() => this.filter("title")}>Title</th>
+            <th  onClick={() => this.filter("price")}>Price</th>
           </tr>
         </thead>
         {sortedLines.map(Row)}
@@ -53,3 +53,4 @@ class App extends Component {
 }
 
 export default App;
+export {Row};

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link changes the class when hovered 1`] = `
+<table>
+  <thead>
+    <tr>
+      <th
+        id="th1"
+        onClick={[Function]}
+      >
+        ID
+      </th>
+      <th
+        onClick={[Function]}
+      >
+        Title
+      </th>
+      <th
+        onClick={[Function]}
+      >
+        Price
+      </th>
+    </tr>
+  </thead>
+</table>
+`;
