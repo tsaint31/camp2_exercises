@@ -98,7 +98,7 @@ class Tasklist extends Component {
         <table>
           <thead>
             <tr>
-              <th> list of Tasks</th>
+              <th> List of Tasks</th>
             </tr>
           </thead>
           <tbody>{this.state.task.map((task,i) => <Rows1 key={i} task={task} handleCheck={() => this.handleCheck(i)} delete={() => this.delete(i)}/>)}</tbody>

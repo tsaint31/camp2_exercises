@@ -17,8 +17,11 @@
   "dependencies": {
     "bootstrap": "^4.0.0-beta.2",
     "express": "^4.16.2",
+    "http": "0.0.0",
+    "path": "^0.12.7",
     "pg": "^7.4.0",
-    "phoenix-channels": "^1.0.0"
+    "phoenix-channels": "^1.0.0",
+    "ws": "^4.0.0"
   },
   "devDependencies": {
     "jest": "^21.2.1"
