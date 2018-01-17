@@ -12,16 +12,6 @@ html, body, #root {
   align-content: stretch;
 }
 
-.list {
-  text-align: left;
-  display:flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  height: 100%;
-  align-items: stretch;
-  align-content: stretch;
-}
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;

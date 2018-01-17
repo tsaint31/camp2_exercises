@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 import Login from "./Login";
 import Chat from "./Chat";
-import { connect } from "react-redux";
-
 
 class App extends Component {
   constructor(props) {
@@ -28,6 +26,7 @@ class App extends Component {
         case "MESSAGES":
           this.setState({ messages: message.data });
           return;
+
       }
     });
   }
@@ -69,18 +68,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    userName: state.userName
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-
-  }
-}
-
-const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
-
-export default ConnectedApp;
+export default App;
